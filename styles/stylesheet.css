@@ -1,0 +1,265 @@
+:root {
+  --teal: #2f9fbe;
+  --teal-dark: #2288a5;
+  --text: #3f4347;
+  --muted: #70757a;
+  --light-gray: #eceaea;
+  --footer: #363636;
+  --quote: #49b8df;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  background: var(--white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--teal-dark);
+  text-decoration: underline;
+}
+
+.container {
+  width: min(980px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+.hero {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.hero__content {
+  min-height: 297px;
+  padding: 80px 0 54px;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(4rem, 5.2vw, 4.9rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: 800;
+}
+
+.hero p {
+  margin: 0;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.18;
+  max-width: 430px;
+  font-weight: 300;
+}
+
+.hero em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.site-nav {
+  background: var(--light-gray);
+  border-bottom: 1px solid #e3e0e0;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+  padding: 22px 0 23px;
+}
+
+.site-nav li {
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.site-nav li + li::before {
+  content: "/";
+  display: inline-block;
+  margin: 0 14px;
+  color: var(--muted);
+}
+
+.site-nav a {
+  color: var(--text);
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.95fr) minmax(250px, 0.82fr);
+  gap: 76px;
+  padding: 56px 0 86px;
+}
+
+.feature-copy h2 {
+  margin: 0 0 20px;
+  color: var(--teal);
+  font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.feature-copy p,
+.story p,
+.sidebar p {
+  margin: 0 0 20px;
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.pull-quote {
+  margin: 54px 0 62px;
+  color: var(--quote);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(1.8rem, 2.7vw, 2.25rem);
+  line-height: 1.35;
+  font-weight: 300;
+}
+
+.pull-quote cite {
+  display: inline;
+  margin-top: 0;
+  font-style: italic;
+}
+
+.story h3,
+.sidebar h3 {
+  margin: 0 0 18px;
+  font-size: clamp(1.35rem, 1.9vw, 1.55rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.story {
+  max-width: 650px;
+}
+
+.sidebar {
+  padding-top: 8px;
+}
+
+.sidebar-section + .sidebar-section {
+  margin-top: 44px;
+}
+
+.cat-week img {
+  width: 100%;
+  max-width: 272px;
+  margin-bottom: 14px;
+}
+
+.site-footer {
+  background:
+    linear-gradient(rgba(54, 54, 54, 0.9), rgba(54, 54, 54, 0.9)),
+    url("lesson04-mock4-footer-image.jpg") center / cover no-repeat;
+  color: var(--white);
+}
+
+.site-footer__overlay {
+  padding: 74px 0 42px;
+}
+
+.site-footer__content {
+  text-align: center;
+}
+
+.site-footer__logo {
+  width: min(300px, 74vw);
+  margin: 0 auto 28px;
+}
+
+.site-footer__description {
+  margin: 0 0 34px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.6;
+}
+
+.site-footer__nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 44px;
+  font-weight: 700;
+}
+
+.site-footer__nav a,
+.site-footer__nav span,
+.site-footer__copyright {
+  color: var(--white);
+}
+
+.site-footer__copyright {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 820px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cat-week img {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 32px, 980px);
+  }
+
+  .hero__content {
+    min-height: auto;
+    padding: 56px 0 44px;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 0;
+  }
+
+  .site-nav li + li::before {
+    content: "";
+    margin: 0;
+  }
+
+  .pull-quote {
+    margin: 40px 0 44px;
+  }
+
+  .site-footer__overlay {
+    padding: 56px 0 36px;
+  }
+
+  .italics {
+    font-style: italic;
+  }
+}

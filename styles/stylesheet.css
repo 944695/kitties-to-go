@@ -13,6 +13,15 @@ body {
   background: #ffffff;
 }
 
+.hidden {
+  position: relative;
+  left: -10000px;
+  top: auto;
+}
+
+.hidden:focus {
+  left: 0;
+}
 .italics {
   font-style: italic;
 }
@@ -20,6 +29,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -41,8 +51,12 @@ a:focus-visible {
 }
 
 .hero {
-  background: #2f9fbe;
+  /* Gradient behind image: visible as fallback when image is disabled or fails to load */
+  background:
+    url("../images/lesson04-mock2-banner-image.jpg") center / cover no-repeat,
+    linear-gradient(to bottom right, #2f9fbe 0%, #1a5f77 100%);
   color: #ffffff;
+  width: 100%;
 }
 
 .hero__content {
@@ -168,7 +182,7 @@ a:focus-visible {
 
 .cat-week img {
   width: 100%;
-  max-width: 272px;
+  max-width: none;
   margin-bottom: 14px;
 }
 
@@ -177,6 +191,7 @@ a:focus-visible {
     linear-gradient(rgba(54, 54, 54, 0.9), rgba(54, 54, 54, 0.9)),
     url("lesson04-mock4-footer-image.jpg") center / cover no-repeat;
   color: #ffffff;
+  width: 100%;
 }
 
 .site-footer__overlay {
@@ -217,4 +232,90 @@ a:focus-visible {
 .site-footer__copyright {
   margin: 0;
   font-size: 0.95rem;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .hero__content {
+    min-height: auto;
+    padding: 48px 0 36px;
+  }
+
+  .main-layout {
+    gap: 40px;
+    padding: 40px 0 56px;
+  }
+
+  .site-nav ul {
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .site-nav li + li::before {
+    margin: 0 8px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .main-layout {
+    gap: 48px;
+  }
+
+  .sidebar {
+    display: block;
+    flex: 1 1 280px;
+    max-width: 320px;
+  }
+
+  .cat-week img {
+    width: 100%;
+  }
+}
+
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .hidden,
+  .site-nav,
+  .sidebar {
+    display: none !important;
+  }
+
+  .hero,
+  .site-footer {
+    background: none !important;
+  }
+
+  .main-layout {
+    display: block;
+    gap: 0;
+    padding: 0;
+  }
+
+  .content-column,
+  .story {
+    max-width: none;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
 }
